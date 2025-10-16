@@ -1,5 +1,6 @@
 package com.example.androidregistrationformapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
@@ -24,28 +25,28 @@ class MainActivity : AppCompatActivity() {
         setupButton()
     }
 
+    private fun setupSpinner() {
+        val titles = arrayOf("Miss", "Mrs", "Ms", "Dr")
+        val titleAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, titles)
+        binding.spinner.adapter = titleAdapter
+    }
     private fun setupButton() {
         binding.buttonCreateAccount.setOnClickListener {
             createAccount()
         }
     }
 
-    private fun setupSpinner() {
-        val titles = arrayOf("Miss", "Mrs", "Ms", "Dr")
-        val titleAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, titles)
-        binding.spinner.adapter = titleAdapter
-    }
-
     private fun createAccount() {
         val user = User(
             binding.spinner.selectedItem as String,
-            binding.textInputEditTextFirstName.toString(),
-            binding.textInputEditTextLastName.toString(),
-            binding.textInputEditTextEmail.toString(),
-            binding.textInputEditTextPhone.toString(),
-            binding.textInputEditTextPassword.toString(),
+            binding.textInputEditTextFirstName.text?.toString()?.trim().orEmpty(),
+            binding.textInputEditTextLastName.text?.toString()?.trim().orEmpty(),
+            binding.textInputEditTextEmail.text?.toString()?.trim().orEmpty(),
+            binding.textInputEditTextPhone.text?.toString()?.trim().orEmpty(),
+            binding.textInputEditTextPassword.text?.toString()?.trim().orEmpty(),
         )
-
-
+        val intent = Intent(this, SummaryActivity::class.java)
+        intent.putExtra("User", user)
+        startActivity(intent)
     }
 }

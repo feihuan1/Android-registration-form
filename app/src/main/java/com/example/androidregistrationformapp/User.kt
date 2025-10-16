@@ -6,7 +6,9 @@ data class User(
     val title: String,
     val firstName: String,
     val lastName: String,
-    val Email: String,
+    val email: String,
     val phone: String,
     val password: String
-) : Serializable
+) : Serializable {
+    fun getFullName() = "$title $firstName $lastName"
+}
