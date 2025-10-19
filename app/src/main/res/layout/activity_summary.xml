@@ -6,26 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:padding="36dp"
     tools:context=".SummaryActivity">
 
     <TextView
-        tools:text="Your Account Details"
+        android:layout_marginTop="24dp"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif"
+        android:text="@string/activity_summary_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/text_view_user_full_name"
-        tools:text="Mr Fullname Uer"
+        tools:text="Mr Full Name Uer"
+        android:layout_marginTop="48dp"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/text_view_email_address"
         tools:text="email@address.com"
+        android:textSize="16sp"
+        android:textColor="@color/blue_accent"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/text_view_phone"
         tools:text="123 456 7891"
+        android:textColor="@color/blue_accent"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
